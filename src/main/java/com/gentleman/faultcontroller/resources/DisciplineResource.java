@@ -22,13 +22,11 @@ public class DisciplineResource {
     private DisciplineService service;
 
     @GetMapping
-    public List<Discipline> getDisciplines() {
-        Discipline d1 = new Discipline(1, "Estrutura de Dados");
-        Discipline d2 = new Discipline (2, "Algoritmos e programação de computadores I");
+    public ResponseEntity<?> getDisciplines() {
 
-        List<Discipline> disciplines = new ArrayList<>(Arrays.asList(d1,d2));
+        List<Discipline> disciplines = service.findMany();
 
-        return disciplines;
+        return ResponseEntity.ok().body(disciplines);
     };
 
     @GetMapping(value = "/{id}")
