@@ -1,32 +1,33 @@
 package com.gentleman.faultcontroller.domain;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "TB_DISCIPLINE")
-public class Discipline {
+@AllArgsConstructor
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotEmpty
-    @NotBlank
     private String name;
 
     @NotEmpty
-    @NotBlank
-    private String teacher;
+    private String password;
+
+    @NotEmpty
+    private String email;
 
 }
-
